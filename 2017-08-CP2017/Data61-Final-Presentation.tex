@@ -3,6 +3,7 @@
 \usepackage{epstopdf}
 \usepackage{float}
 \usepackage{multicol}
+\usepackage{booktabs}
 \usepackage{chngpage}
 \usepackage{IEEEtrantools,latexsym,amssymb,amsmath,mathrsfs}
 
@@ -46,14 +47,13 @@
 		\begin{table}
 			\caption{Workers' Skills}
 			\vspace{-3mm}
-			\begin{tabular}{c|cccc}
-				\hline
-				 & Alice & Bob & Carl & Dora \\
-				\hline
+			\begin{tabular}{ccccc}
+				\toprule
+				 & Alice & Bob & Carl & Dora \\\midrule
 				{\tiny {\bf Programmer}} & - & \checkmark & \checkmark & \checkmark \\
 				{\tiny {\bf DB Designer}} & \checkmark & - & - & - \\
 				{\tiny {\bf Webmaster}} & \checkmark & \checkmark & - & \checkmark \\
-				\hline
+				\bottomrule
 			\end{tabular}
 		\end{table}\pause
 		\begin{figure}[H]
@@ -64,14 +64,13 @@
 
 		\begin{table}
 			\caption{Skill Requirement}
-			\begin{tabular}{c|cccc}
-				\hline
-				 & $A_1$ & $A_2$ & $A_3$ & $A_4$ \\
-				\hline
+			\begin{tabular}{ccccc}
+				\toprule
+				 & $A_1$ & $A_2$ & $A_3$ & $A_4$ \\\midrule
 				{\tiny {\bf Programmer}} & - & 1 & 2 & 1 \\
 				{\tiny {\bf DB Designer}} & 1 & - & - & 1 \\
 				{\tiny {\bf Webmaster}} & 1 & 1 & - & - \\
-				\hline
+				\bottomrule
 			\end{tabular}
 		\end{table}\pause
 		\vspace{-8mm}
@@ -83,23 +82,20 @@
 	\end{multicols}
 \end{frame}
 
-\subsection{Constraint Programming}
-\begin{frame}{Intro: Constraint Programming}
-	\begin{multicols}{2}
-		Domain propagation
-		\begin{itemize}
-			\item Variables have domains of possible values
-			\item Constraints reduce the size of these domains
-		\end{itemize}\pause
-		\columnbreak
-		Nogood learning
-		\begin{itemize}
-			\item Learn from failures
-			\item Record these failures as constraints
-			\item Use these constraints to make inferences
-		\end{itemize}
-	\end{multicols}
-\end{frame}
+% \subsection{Constraint Programming}
+% \begin{frame}{Intro: Constraint Programming}
+% 	Domain propagation
+% 	\begin{itemize}
+% 		\item Variables have domains of possible values
+% 		\item Constraints reduce the size of these domains
+% 	\end{itemize}\pause
+% 	Nogood learning
+% 	\begin{itemize}
+% 		\item Learn from failures
+% 		\item Record these failures as constraints
+% 		\item Use these constraints to make inferences
+% 	\end{itemize}
+% \end{frame}
 
 \subsection{Previous Work}
 \begin{frame}{Intro: The Literature}
@@ -148,7 +144,7 @@
 \subsection{Overview}
 \begin{frame}{Model: Overview}
 	\begin{itemize}
-		\item \pause Objective\pause
+		\item \pause Objective
 		\begin{itemize}
 			\item Minimise the total project duration\pause
 		\end{itemize}
@@ -198,14 +194,14 @@
 		\item Each worker only performs one activity at a time\pause
 	\end{itemize}
 	\vspace{5mm}
-	Three equivalent ways of modelling\pause
+	Possible ways of modelling\pause
 	\vspace{1mm}
 	\begin{enumerate}
-		\item Boolean satisfiability constraint using extra decision variable\pause
+		\item Time-indexed decomposition\pause
 		\vspace{1mm}
-		\item Disjunctive global constraint\pause
+		\item Global constraints (either disjunctive or cumulative)\pause
 		\vspace{1mm}
-		\item Cumulative global constraint
+		\item Order constraints
 	\end{enumerate}
 \end{frame}
 
@@ -214,16 +210,16 @@
 	\begin{table}[h]
 		\centering
 		\vspace{1mm}
-		\begin{tabular}{ll}
-			\hline
-			\multicolumn{2}{l}{\rule{0pt}{2ex} \bf{Decision Variables}}  \\
-			\hline
-			\rule{-4pt}{3ex}
-			$s_i$ & Start time of activity $i \in V$ \\
-			$o_{ij}$ & 1 iff activities $i$ and $j$ overlap for $(i,j)\in U$ \\
-			$x_{ir}$ & 1 iff resource $r \in \mathscr{R}$ is assigned activity $i \in V$ \\
-			$y_{irk}$ & 1 iff resource $r \in \mathscr{R}$ contributes with skill $k \in \mathscr{L}$ to activity $i \in V$\\
-			\hline
+		\begin{tabular}{llp{8cm}}
+			\toprule
+			\multicolumn{3}{l}{ \bf{Decision Variables}}  \\
+			\midrule
+			Primary & $s_i$ & Start time of activity $i \in V$ \\
+			 & $y_{ir}^s$ & 1 iff resource $r \in R$ contributes with skill $s \in S$ to activity $i \in V$\\\midrule
+			% \multicolumn{2}{l}{\rule{0pt}{2ex} \bf{Auxilliary Decision Variables}}  \\
+			Auxiliary & $o_{ij}$ & 1 iff activities $i$ and $j$ overlap for $(i,j)\in U$ \\
+			 & $x_{ir}$ & 1 iff resource $r \in R$ is assigned activity $i \in V$ \\
+			\bottomrule
 		\end{tabular}
 		\label{tab:vars}
 	\end{table}
@@ -237,11 +233,11 @@
 		\text{s.t. }\quad s_i + p_i &\leq& s_j & & \forall (i,j) \in E \label{const:prec}\\
 		\neg o_{ij} &\Leftrightarrow& (s_i + p_i \leq s_j)\vee & & \nonumber\\
 		\IEEEeqnarraymulticol{2}{r}{} & (s_j + p_j \leq s_i) & & \forall (i,j) \in U \label{const:unaryRes1}\\
-		(x_{ir}\wedge x_{jr})&\Rightarrow& \neg o_{ij} & & \forall (i,j) \in U,~r \in \mathscr{R}V_i \cap \mathscr{R}V_j \label{const:unaryRes2}\\
-		\sum_{r \in \mathscr{R}V_i} y_{irk}&=& Req_{ik} \mathscr & & \forall i \in V,~k \in \mathscr{L}_i \label{const:skillSatified}\\
-		\sum_{k \in \mathscr{L}_i | Mast_{rk}=1} y_{irk}&\leq& 1 & & \forall i \in V,~r \in \mathscr{R}V_i \label{const:noMultiTask}\\
-		y_{irk} &\leq& Mast_{rk} & & \forall i \in V,~r \in \mathscr{R}V_i,~k \in \mathscr{L} \label{const:mastery}\\
-		y_{irk} &\leq& x_{ir} & & \forall i \in V, ~r \in \mathscr{R}V_i, ~k \in \mathscr{L}_i \label{const:linking}\\
+		(x_{ir}\wedge x_{jr})&\Rightarrow& \neg o_{ij} & & \forall (i,j) \in U,~r \in RV_i \cap RV_j \label{const:unaryRes2}\\
+		\sum_{r \in RV_i} y_{ir}^s&=& sr_{ik} \mathscr & & \forall i \in V,~s \in S_i \label{const:skillSatified}\\
+		\sum_{s \in S_i | mast_{rk}=1} y_{ir}^s&\leq& 1 & & \forall i \in V,~r \in RV_i \label{const:noMultiTask}\\
+		y_{ir}^s &\leq& mast_{rk} & & \forall i \in V,~r \in RV_i,~s \in S \label{const:mastery}\\
+		y_{ir}^s &\leq& x_{ir} & & \forall i \in V, ~r \in RV_i, ~s \in S_i \label{const:linking}\\
 		s_i &\geq& 0 & & \forall i \in V \label{const:nonfun1}
 		% o_{ij},~x_{ir},~y_{irk} &\in&\IEEEeqnarraymulticol{3}{c}{\{0,1\} ~~ \forall (i,j) \in U, ~\forall i \in V~r \in \mathscr{R},~\forall i \in V~r \in \mathscr{R}~k \in \mathscr{L} \text{ resp.} } \label{const:nonfun2}
 	\end{IEEEeqnarray}
@@ -251,8 +247,8 @@
 \begin{frame}{Model: Redundent Constraints}
 	\begin{adjustwidth}{-.2in}{-.2in}
 	\begin{IEEEeqnarray}{CCl}
-		\IEEEeqnarraymulticol{1}{c}{{\tt cumulative}(s,~p,~[~Req_{ik}: i \in V],~|\mathscr{R}_k|)} & & \forall k \in \mathscr{L} \label{const:cumulSkill}\\
-		\IEEEeqnarraymulticol{1}{c}{{\tt cumulative}\left(s,~p,~\left[~\sum_{k \in \mathscr{L}} Req_{ik}: i \in V~\right],~m\right)} & & \label{const:cumulRes}\\
+		\IEEEeqnarraymulticol{1}{c}{{\tt cumulative}(s,~p,~[~sr_{ik}: i \in V],~|\mathscr{R}_k|)} & & \forall k \in \mathscr{L} \label{const:cumulSkill}\\
+		\IEEEeqnarraymulticol{1}{c}{{\tt cumulative}\left(s,~p,~\left[~\sum_{k \in \mathscr{L}} sr_{ik}: i \in V~\right],~m\right)} & & \label{const:cumulRes}\\
 		\IEEEeqnarraymulticol{3}{c}{x_{ir} = 0 ~~\forall i \in V,~r \in \mathscr{R}\backslash \mathscr{R}V_i} \label{const:redunAssign}\\
 		\IEEEeqnarraymulticol{3}{c}{y_{irk} = 0 ~~\forall i \in V,~r \in \mathscr{R}\backslash \mathscr{R}V_i ,~k \in \mathscr{L}} \label{const:redunContribRes}\\
 		\IEEEeqnarraymulticol{3}{c}{y_{irk} = 0 ~~\forall i \in V,~r \in \mathscr{R} ,~k \in \mathscr{L}\backslash \mathscr{L}_i} \label{const:redunContribSkill}\\
@@ -267,34 +263,54 @@
 \section{Data}
 \begin{frame}{Data: Overview}
 	\begin{itemize}
-		\pause
-		\item Generated our own data
-		\begin{itemize}
-			\item equivalent to the Portuguese group's data\pause
-		\end{itemize}
-		\vspace{2mm}
-		\item Small data set: 216 unique instances
-		\begin{itemize}
-			\item 20 activities
-			\vspace{1mm}
-			\item 4 skills
-			\vspace{1mm}
-			\item 10-30 workers\pause
-			\vspace{1mm}
-			\item \alert{13 unsolved}\pause
-		\end{itemize}
-		\vspace{2mm}
-		\item Large data set: 216 unique instances
-		\begin{itemize}
-			\item 40 activities
-			\vspace{1mm}
-			\item 4 skills
-			\vspace{1mm}
-			\item 20-60 workers\pause
-			\vspace{1mm}
-			\item \alert{211 unsolved}
-		\end{itemize}
+		% \pause
+		\item Tested on data from the literature and generated our own data\pause
 	\end{itemize}
+\begin{table}[tpb]
+	\begin{adjustwidth}{-0.5cm}{}
+    \setlength{\tabcolsep}{3pt}
+    \centering
+    \small
+	\caption{Data sets summary}
+	\begin{tabular}{@{}lrrrrrrr@{}}
+		\toprule
+		&  &  &  &  & \multicolumn{3}{c}{Best known results}\\ 
+        \cmidrule(l){6-8} 
+		set & \multicolumn{1}{l}{\#instances} & $n$ & $l$ & $m$ & source & \multicolumn{1}{r}{\%optimal} & {\color{red} \#unsolved} \\ \midrule
+		1a     & 216 & 22 & 4 & 10-30 & Correia et al. 2012 & 93.98 & {\color{red} 13}\\
+		1b     & 216& 42 & 4 & 20-60 & Almeida et al. 2016 & 2.31 & {\color{red} 211} \\ \midrule
+		2a     & 110 & 20-51 & 2-8 & 5-14 & Montoya et al. 2014 & 43.64 & {\color{red} 62} \\
+		2b     & 77 & 32-62 & 9-15 & 5-19 & Montoya et al. 2014 & 66.20 & {\color{red} 24} \\
+		2c     & 91 & 22-32 & 3-12 & 4-15 & Montoya et al. 2014 & 51.11 & {\color{red} 44} \\ \bottomrule
+	\end{tabular}
+    \end{adjustwidth}
+	\label{tab:data}
+\end{table}
+		% \begin{itemize}
+		% 	\item equivalent to the Portuguese group's data\pause
+		% \end{itemize}
+	% 	\vspace{2mm}
+	% 	\item Small data set: 216 unique instances
+	% 	\begin{itemize}
+	% 		\item 20 activities
+	% 		\vspace{1mm}
+	% 		\item 4 skills
+	% 		\vspace{1mm}
+	% 		\item 10-30 workers\pause
+	% 		\vspace{1mm}
+	% 		\item \alert{13 unsolved}\pause
+	% 	\end{itemize}
+	% 	\vspace{2mm}
+	% 	\item Large data set: 216 unique instances
+	% 	\begin{itemize}
+	% 		\item 40 activities
+	% 		\vspace{1mm}
+	% 		\item 4 skills
+	% 		\vspace{1mm}
+	% 		\item 20-60 workers\pause
+	% 		\vspace{1mm}
+	% 		\item \alert{211 unsolved}
+	% 	\end{itemize}
 \end{frame}
 
 \begin{frame}{Data: Complexity Measures}
@@ -326,13 +342,13 @@
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 % EXPERIMENTS
 \section{Experiments}
-\subsection{Choosing Parameters}
-\begin{frame}{Experiments: Constraint Choice}
-	Sample of 72 small instances\pause
-	\begin{figure}[H]
-		\includegraphics[width=0.8\linewidth]{images/constChoice.pdf}
-	\end{figure}
-\end{frame}
+% \subsection{Choosing Parameters}
+% \begin{frame}{Experiments: Constraint Choice}
+% 	Sample of 72 small instances\pause
+% 	\begin{figure}[H]
+% 		\includegraphics[width=0.8\linewidth]{images/constChoice.pdf}
+% 	\end{figure}
+% \end{frame}
 
 \subsection{Results}
 \begin{frame}{Experiments: Search Strategies}
@@ -343,7 +359,7 @@
 		\vspace{2mm}
 		\item \pause Start times ($s_i$), then contrbution of each worker ($y_{irk}$)
 		\vspace{2mm}
-		\item \pause Na\"{i}ve activity-based
+		\item \pause Na\"{i}ve priority search
 	\end{itemize}
 \end{frame}
 
@@ -439,14 +455,14 @@
 	\end{itemize}
 \end{frame}
 
-\subsection{Future Work}
-\begin{frame}{Future Work}
-	\begin{itemize}
-		\item Apply activity-based search to the large dataset\pause
-		\vspace{2mm}
-		\item Create a more structured search procedure in chuffed
-	\end{itemize}
-\end{frame}
+% \subsection{Future Work}
+% \begin{frame}{Future Work}
+% 	\begin{itemize}
+% 		\item Apply activity-based search to the large dataset\pause
+% 		\vspace{2mm}
+% 		\item Create a more structured search procedure in chuffed
+% 	\end{itemize}
+% \end{frame}
 
 \begin{frame}{Acknowledgements}
 	\begin{itemize}

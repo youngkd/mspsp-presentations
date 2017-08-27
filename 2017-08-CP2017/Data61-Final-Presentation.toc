@@ -3,15 +3,12 @@
 \beamer@sectionintoc {1}{Introduction}{2}{0}{1}
 \beamer@subsectionintoc {1}{1}{Problem Definition}{2}{0}{1}
 \beamer@subsectionintoc {1}{2}{Example}{6}{0}{1}
-\beamer@subsectionintoc {1}{3}{Constraint Programming}{10}{0}{1}
-\beamer@subsectionintoc {1}{4}{Previous Work}{12}{0}{1}
-\beamer@sectionintoc {2}{Model}{16}{0}{2}
-\beamer@subsectionintoc {2}{1}{Overview}{16}{0}{2}
-\beamer@subsectionintoc {2}{2}{Constraints}{22}{0}{2}
-\beamer@sectionintoc {3}{Data}{36}{0}{3}
-\beamer@sectionintoc {4}{Experiments}{45}{0}{4}
-\beamer@subsectionintoc {4}{1}{Choosing Parameters}{45}{0}{4}
-\beamer@subsectionintoc {4}{2}{Results}{47}{0}{4}
-\beamer@sectionintoc {5}{Conclusion}{61}{0}{5}
-\beamer@subsectionintoc {5}{1}{Summary}{61}{0}{5}
-\beamer@subsectionintoc {5}{2}{Future Work}{65}{0}{5}
+\beamer@subsectionintoc {1}{3}{Previous Work}{10}{0}{1}
+\beamer@sectionintoc {2}{Model}{14}{0}{2}
+\beamer@subsectionintoc {2}{1}{Overview}{14}{0}{2}
+\beamer@subsectionintoc {2}{2}{Constraints}{19}{0}{2}
+\beamer@sectionintoc {3}{Data}{33}{0}{3}
+\beamer@sectionintoc {4}{Experiments}{38}{0}{4}
+\beamer@subsectionintoc {4}{1}{Results}{38}{0}{4}
+\beamer@sectionintoc {5}{Conclusion}{52}{0}{5}
+\beamer@subsectionintoc {5}{1}{Summary}{52}{0}{5}
