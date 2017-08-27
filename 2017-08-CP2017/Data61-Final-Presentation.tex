@@ -25,7 +25,7 @@
 \begin{frame}{Intro: The Problem}
 	What is the Multi-Skill Project Scheduling Problem (MSPSP)?\pause
 	\begin{itemize}
-		\item Activites
+		\item Activities
 		\item Workers
 		\item Skills\pause
 	\end{itemize}
@@ -125,24 +125,24 @@
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Intro: Timeline of the Literature}
-	\begin{itemize}
-		\item \color{red}{French} 
-		\item \color{blue}{Portuguese} 
-		\item \color{green}{Polish} 
-		\item \color{darkgray}{Other} 
-	\end{itemize}
-	\begin{figure}[H]
-		\includegraphics[width=0.8\linewidth]{images/lit_timeline.eps}
-	\end{figure}
-\end{frame}
+% \begin{frame}{Intro: Timeline of the Literature}
+% 	\begin{itemize}
+% 		\item \color{red}{French} 
+% 		\item \color{blue}{Portuguese} 
+% 		\item \color{green}{Polish} 
+% 		\item \color{darkgray}{Other} 
+% 	\end{itemize}
+% 	\begin{figure}[H]
+% 		\includegraphics[width=0.8\linewidth]{images/lit_timeline.eps}
+% 	\end{figure}
+% \end{frame}
 
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 % MODEL
 \section{Model}
 \subsection{Overview}
-\begin{frame}{Model: Overview}
+\begin{frame}{Model}
 	\begin{itemize}
 		\item \pause Objective
 		\begin{itemize}
@@ -170,7 +170,7 @@
 \end{frame}
 
 \subsection{Constraints}
-\begin{frame}{Model: Constraints}
+\begin{frame}{Model: Constraints Outline}
 	\begin{itemize}
 		\item \pause Precedence relations are respected\pause
 		\vspace{2mm}
@@ -185,24 +185,6 @@
 		\vspace{2mm}
 		\item Redundant constraints
 	\end{itemize}
-\end{frame}
-
-\begin{frame}{Model: Choice of Constraints}
-	Unary Resource Constraint
-	\vspace{1mm}
-	\begin{itemize}
-		\item Each worker only performs one activity at a time\pause
-	\end{itemize}
-	\vspace{5mm}
-	Possible ways of modelling\pause
-	\vspace{1mm}
-	\begin{enumerate}
-		\item Time-indexed decomposition\pause
-		\vspace{1mm}
-		\item Global constraints (either disjunctive or cumulative)\pause
-		\vspace{1mm}
-		\item Order constraints
-	\end{enumerate}
 \end{frame}
 
 \begin{frame}{Model: Decision Variables}
@@ -226,35 +208,86 @@
 	\end{adjustwidth}
 \end{frame}
 
-\begin{frame}{Model}
+\begin{frame}{Model: Basic Constraints}
 	\begin{adjustwidth}{-.2in}{-.2in}
-	\begin{IEEEeqnarray}{rClCl}
-		\IEEEeqnarraymulticol{2}{r}{\text{Min}} & s_{n+1} & \hspace{4mm} & \label{objfun}\\
-		\text{s.t. }\quad s_i + p_i &\leq& s_j & & \forall (i,j) \in E \label{const:prec}\\
-		\neg o_{ij} &\Leftrightarrow& (s_i + p_i \leq s_j)\vee & & \nonumber\\
-		\IEEEeqnarraymulticol{2}{r}{} & (s_j + p_j \leq s_i) & & \forall (i,j) \in U \label{const:unaryRes1}\\
-		(x_{ir}\wedge x_{jr})&\Rightarrow& \neg o_{ij} & & \forall (i,j) \in U,~r \in RV_i \cap RV_j \label{const:unaryRes2}\\
-		\sum_{r \in RV_i} y_{ir}^s&=& sr_{ik} \mathscr & & \forall i \in V,~s \in S_i \label{const:skillSatified}\\
-		\sum_{s \in S_i | mast_{rk}=1} y_{ir}^s&\leq& 1 & & \forall i \in V,~r \in RV_i \label{const:noMultiTask}\\
-		y_{ir}^s &\leq& mast_{rk} & & \forall i \in V,~r \in RV_i,~s \in S \label{const:mastery}\\
-		y_{ir}^s &\leq& x_{ir} & & \forall i \in V, ~r \in RV_i, ~s \in S_i \label{const:linking}\\
-		s_i &\geq& 0 & & \forall i \in V \label{const:nonfun1}
-		% o_{ij},~x_{ir},~y_{irk} &\in&\IEEEeqnarraymulticol{3}{c}{\{0,1\} ~~ \forall (i,j) \in U, ~\forall i \in V~r \in \mathscr{R},~\forall i \in V~r \in \mathscr{R}~k \in \mathscr{L} \text{ resp.} } \label{const:nonfun2}
+	\begin{IEEEeqnarray}{lCl}
+	    s_i + p_i \leq s_j 
+	    &\hspace{2mm}& \forall (i, j) \in E\nonumber\\[4mm]
+	    \sum\nolimits_{r\in R} y_{ir}^s = sr_i^s
+	    &\hspace{2mm}& \forall i\in V, \forall s\in S\nonumber\\[4mm]
+	    \sum\nolimits_{s \in  S} \sum\nolimits_{i\in V: s_i \leq t < s_i + p_i} y_{ir}^s \leq 1 
+	    &\hspace{2mm}& \forall r\in R, \forall t \in \left\{ 0,1,\ldots,\sum\nolimits_{i\in V} p_i \right\}\nonumber\\[4mm]
+	    y_{ir}^s \leq mast_{rs} 
+	    &\hspace{2mm}& \forall i\in V, \forall r\in R, \forall s \in S\nonumber
 	\end{IEEEeqnarray}
 	\end{adjustwidth}
 \end{frame}
 
-\begin{frame}{Model: Redundent Constraints}
+\begin{frame}{Model: Redundant Constraints}
 	\begin{adjustwidth}{-.2in}{-.2in}
 	\begin{IEEEeqnarray}{CCl}
-		\IEEEeqnarraymulticol{1}{c}{{\tt cumulative}(s,~p,~[~sr_{ik}: i \in V],~|\mathscr{R}_k|)} & & \forall k \in \mathscr{L} \label{const:cumulSkill}\\
-		\IEEEeqnarraymulticol{1}{c}{{\tt cumulative}\left(s,~p,~\left[~\sum_{k \in \mathscr{L}} sr_{ik}: i \in V~\right],~m\right)} & & \label{const:cumulRes}\\
-		\IEEEeqnarraymulticol{3}{c}{x_{ir} = 0 ~~\forall i \in V,~r \in \mathscr{R}\backslash \mathscr{R}V_i} \label{const:redunAssign}\\
-		\IEEEeqnarraymulticol{3}{c}{y_{irk} = 0 ~~\forall i \in V,~r \in \mathscr{R}\backslash \mathscr{R}V_i ,~k \in \mathscr{L}} \label{const:redunContribRes}\\
-		\IEEEeqnarraymulticol{3}{c}{y_{irk} = 0 ~~\forall i \in V,~r \in \mathscr{R} ,~k \in \mathscr{L}\backslash \mathscr{L}_i} \label{const:redunContribSkill}\\
-		\IEEEeqnarraymulticol{3}{c}{y_{irk} = 0 ~~\forall r \in \mathscr{R},~k \in \mathscr{L}\backslash \mathscr{L}_r,~i \in V} \label{const:redunContribAct}
+		\IEEEeqnarraymulticol{1}{c}{{\tt cumulative}(s,~p,~[~sr_{is}: i \in V],~|R_s|)} & & \forall s \in S\nonumber\\[6mm]
+		\IEEEeqnarraymulticol{1}{c}{{\tt cumulative}\left(s,~p,~\left[~\sum_{s \in S} sr_{is}: i \in V~\right],~m\right)} \nonumber
 	\end{IEEEeqnarray}
 	\end{adjustwidth}
+\end{frame}
+
+\begin{frame}{Model: Choice of Constraints}
+	Unary Resource Constraint
+	\vspace{1mm}
+	\begin{itemize}
+		\item Each worker only performs one activity at a time\pause
+	\end{itemize}
+	\vspace{5mm}
+	Possible ways of modelling
+	\vspace{1mm}
+	\begin{enumerate}
+		\item Time-indexed decomposition
+		\vspace{1mm}
+		\item Global constraints (either disjunctive or cumulative)
+		\vspace{1mm}
+		\item Order constraints
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Model: Unary Resource Constr.}
+	\begin{itemize}
+		\item Time-indexed decomposition
+		\begin{IEEEeqnarray}{lCl}
+		    \sum\nolimits_{s \in  S} \sum\nolimits_{i\in V: s_i \leq t < s_i + p_i} y_{ir}^s \leq 1 
+		    &\hspace{2mm}& \forall r\in R, \forall t \in \left\{ 0,1,\ldots,\sum\nolimits_{i\in V} p_i \right\} \nonumber
+		\end{IEEEeqnarray}\pause
+		\vspace{3mm}
+		\item Cumulative
+		\begin{align}
+		    & {\tt cumulative}((s_{i})_{i\in V}, (p_{i})_{i\in V}, 
+		        (x_{ir})_{i\in V}, 1)
+		    && \forall r\in R \nonumber
+		\end{align}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Model: Unary Resource Constr.}
+	\begin{itemize}
+		\item First order constraint formulation
+		\begin{align}
+		    \neg o_{ij} 
+		    & \Leftrightarrow (s_{i} + p_{i} \leq s_{j}) \vee (s_{j} + p_{j} \leq s_{i})
+		    && \forall (i, j) \in U \nonumber\\
+		    (x_{ir} \wedge x_{jr}) 
+		    & \Rightarrow \neg o_{ij}
+		    && \forall (i, j) \in U, r\in R\nonumber
+		\end{align}\pause
+		\vspace{3mm}
+		\item Second order constraint formulation
+		\begin{multline}
+		    (o_{ij} \Rightarrow s_i + p_{i} \leq s_{j}) \wedge
+		    (\neg o_{ij} \Rightarrow s_{j} + p_{j} \leq s_{i})
+		    \\
+		    \forall (i, j) \in U, \exists s\in S: 
+		        sr_{is} + sr_{js} > \sum\nolimits_{r\in R} mast_{rs}\nonumber
+		\end{multline}
+	\end{itemize}
 \end{frame}
 
 
@@ -271,12 +304,11 @@
     \setlength{\tabcolsep}{3pt}
     \centering
     \small
-	\caption{Data sets summary}
 	\begin{tabular}{@{}lrrrrrrr@{}}
 		\toprule
 		&  &  &  &  & \multicolumn{3}{c}{Best known results}\\ 
         \cmidrule(l){6-8} 
-		set & \multicolumn{1}{l}{\#instances} & $n$ & $l$ & $m$ & source & \multicolumn{1}{r}{\%optimal} & {\color{red} \#unsolved} \\ \midrule
+		set & \multicolumn{1}{l}{\#instances} & $n$ & $l$ & $m$ & \multicolumn{1}{c}{source} & \multicolumn{1}{r}{\%optimal} & {\color{red} \#unsolved} \\ \midrule
 		1a     & 216 & 22 & 4 & 10-30 & Correia et al. 2012 & 93.98 & {\color{red} 13}\\
 		1b     & 216& 42 & 4 & 20-60 & Almeida et al. 2016 & 2.31 & {\color{red} 211} \\ \midrule
 		2a     & 110 & 20-51 & 2-8 & 5-14 & Montoya et al. 2014 & 43.64 & {\color{red} 62} \\
@@ -331,7 +363,7 @@
 		\vspace{1mm}
 		\begin{itemize}
 			\item varied over 3 values
-			\item \[MRS=\frac{m}{\sum_{i\in V}\sum_{k \in \mathscr{L}}Req_{ik}}\]
+			\item \[MRS=\frac{m}{\sum_{i\in V}\sum_{s \in S}sr_{is}}\]
 		\end{itemize}
 	\end{enumerate}
 	% \vspace{3mm}
@@ -342,102 +374,140 @@
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 % EXPERIMENTS
 \section{Experiments}
-% \subsection{Choosing Parameters}
-% \begin{frame}{Experiments: Constraint Choice}
-% 	Sample of 72 small instances\pause
-% 	\begin{figure}[H]
-% 		\includegraphics[width=0.8\linewidth]{images/constChoice.pdf}
-% 	\end{figure}
-% \end{frame}
 
 \subsection{Results}
 \begin{frame}{Experiments: Search Strategies}
 	\begin{itemize}
-		\item \pause Start times ($s_i$)
-		\vspace{2mm}
-		\item \pause Start times ($s_i$), then worker assignment ($x_{ir}$)
-		\vspace{2mm}
-		\item \pause Start times ($s_i$), then contrbution of each worker ($y_{irk}$)
-		\vspace{2mm}
-		\item \pause Na\"{i}ve priority search
+		\item Basic Search
+		\begin{itemize}
+			\item  Start times ($s_i$)
+		\end{itemize}\pause
+			\vspace{2mm}
+		\item Sequential Searches
+		\begin{itemize}
+			\item  Start times ($s_i$), then worker assignment ($x_{ir}$)
+			\item  Start times ($s_i$), then contribution of each worker ($y_{ir}^s$)
+		\end{itemize}\pause
+			\vspace{2mm}
+		\item Priority searches $\Rightarrow$ Group scheduling and assignment decisions of each activity together
+		\begin{itemize}
+			\item {\tt priority-ff}: choose activity group by smallest start time domain 
+			\item {\tt priority-sml}: choose activity group by smallest largest possible start time
+			\item {\tt priority-sm}:choose activity group by smallest possible start time
+		\end{itemize}
 	\end{itemize}
 \end{frame}
 
-\begin{frame}{Experiments: Small Data Set}
+\begin{frame}{Experiments: Set 1'a}
 	\begin{itemize}
-		\item Tested on all 216 small instances
-		\item Time limit of 300 seconds \pause
+		\item Tested on 216 generated instances with 22 activities 
+		\item Time limit of 600 seconds \pause
 	\end{itemize}
-	\begin{table}[H]
-		\begin{adjustwidth}{-.9in}{-.9in}
-		\centering
-		\scriptsize
-		\begin{tabular}{r|rrrrrr}
-			\hline
-			search strategy & \#no soln & \%gap & \#optimal & \%optimal & avg. runtime  \\
-			\hline
-			default & 0 & 0.00 & 216 & 100.00 & 3.25s \\
-			start &  0 & 2.50 & 215 & 99.54 & 1.26s \\
-			start then worker & 0 & 0.00 & 216 & 100.00 & 2.89s \\
-			\bf{start then skill} & \bf{0} & \bf{0.00} & \bf{216} & \bf{100.00} & \bf{1.63s} \\
-			na\"{i}ve activity-based & 0 & 2.50 & 215 & 99.54 & 0.82s\\\pause
-			activity smallest & 0 & 0.00 & 216 & 100.00 & 0.45s\\\hline
+	\begin{table}[tpb]
+	\begin{adjustwidth}{-.9in}{-.9in}
+    \centering
+    \small
+    \begin{tabular}{lllrrr}
+        \toprule
+        unary cons. & redundant cons. & search & \#nodes & \%optimal & runtime   \\
+        \midrule
+        cumulative & both & default & 370,174 & 100.00 & 10.23s \\
+        order-1 & both & default & 97,085 & 100.00 & 2.73s \\
+        order-2 & both & default & 54,282 & 100.00 & 1.30s \\
+        \midrule\pause
+        order-2 & both & {\tt priority-ff}    & 41,762 & 100.00 & 1.25s \\
+        order-2 & both & {\tt priority-sml}    & 20,786 & 100.00 & 0.68s \\
+        order-2 & both & {\tt priority-sm}    & 13,241 & 100.00 & {\color{red} {\bf 0.51s} }\\
+        \midrule\pause
+        order-2 & skill-res & {\tt priority-sm}    & 847,879 & 85.19 & 94.81s \\
+        order-2 & all-res & {\tt priority-sm}    & 13,953 & 100.00 & 0.67s \\
+        \bottomrule
+    \end{tabular}
+	\end{adjustwidth}
+    \label{tab:resultsSet1a}
+\end{table}
+\end{frame}
+
+\begin{frame}{Experiments: Set 1'b and Set 2}
+	\begin{itemize}
+		\item Tested on remaining benchmark instances
+		\item Time limit of 600 seconds \pause
+	\end{itemize}
+	\begin{table}[ptb]
+		% \begin{adjustwidth}{-.3in}{-.3in}
+		\setlength{\tabcolsep}{5pt}
+		% \small
+		\begin{tabular}{lrrrrrrr}
+			\toprule
+			set & \#nodes & \%gap & \#opt & \%opt & mean runtime & {\color{red} \#closed} \\
+			\midrule
+			$1'b$ & 7,584k & 49.3 & 27/216 & 12.5 & 534.6s & {\color{red} --} \\
+			$2a$ & 2,223k & 185.2 & 81/110 & 73.6 & 195.2s & {\color{red} $\geq$33 } \\
+			$2b$ & 816k & 22.4 & 63/77 & 81.8 & 122.9s & {\color{red} $\geq$10 } \\
+			$2c$ & 14k & 0.0 & 91/91 & 100.0 & 1.2s & {\color{red} 44 } \\
+			\bottomrule
 		\end{tabular}
-		\end{adjustwidth}
+		\label{tab:benchmarks}
+		% \end{adjustwidth}
 	\end{table}
 \end{frame}
 
-\begin{frame}{Experiments: Large Data Set}
+\begin{frame}{Experiments: Complexity Measures}
 	\begin{itemize}
-		\item Tested on all 216 large instances
-		\item Time limit of 300 seconds \pause
-	\end{itemize}
-	\begin{table}[H]
-		\begin{adjustwidth}{-.9in}{-.9in}
-		\centering
-		\scriptsize
-		\begin{tabular}{r|rrrrrrrrr}
-			\hline
-			variable selection & \#nodes & \#props & \#no soln & \%gap & \#opt & \%opt & opt rt. & total rt.   \\
-			\hline
-			naive & 6,568k & 375m & 0 & 60.36 & 13 & 6.02 & 98.15 & 287.85 \\
-			\bf{smallest} & \bf{734k} & \bf{71m} & \bf{0} & \bf{53.29} & \bf{15} & \bf{6.94} & \bf{103.51} & \bf{286.35} \\
-			smallest\_largest & 814k & 73m & 0 & 55.50 & 7 & 3.24 & 70.71 & 292.57 \\
-			first\_fail & 1,037k & 80m & 0 & 67.48 & 8 & 3.70 & 113.33 & 293.09 \\\pause
-			smallest wth UB & 715k & 69m & 5 & 54.18 & 16 & 7.41 & 78.88 & 283.62 \\\pause
-			smallest (fixed) & 3,962k & 409m & 0 & 50.18 & 24 & 11.11 & 55.45 & 272.83 \\\hline
-		\end{tabular}
-		\end{adjustwidth}
-	\end{table}
-\end{frame}
-
-\begin{frame}{Experiments: Large Data Set}
-	\begin{itemize}
-		\item Time limit of 3600 seconds \pause
+		\item Results of set $1'b$
+		\item Time limit of 600 seconds \pause
 	\end{itemize}
 	\begin{table}[H]
 		\begin{adjustwidth}{-.9in}{-.9in}
 			\centering
 			\scriptsize
-			\vspace{2mm}
-			\begin{tabular}{cc|rrrrrrrr}
-				\hline
-				measure & value  & \#nodes & \#props & \%gap & \#opt & \%opt & opt rt. &  total rt. \\
-				\hline SF & 1 & 36m & 4,254m & 48.35 & 7 & 12.96 & 257.55 & 3166.72 \\
-				 & 0.75 & 47m & 4,296m & 49.63 & 4 & 7.41 & 545.44 & 3373.74 \\
-				 & 0.5 & 32m & 4,468m & 42.06 & 20 & 37.04 & 782.20 & 2556.37 \\
-				 & var & 45m & 4,302m & 49.82 & 5 & 9.26 & 130.97 & 3278.79 \\\hline
-				NC & 1.5 & 41m & 5,007m & 57.33 & 8 & 11.11 & 819.48 & 3291.05 \\
-				 & 1.8 & 42m & 4,381m & 46.09 & 11 & 15.28 & 558.06 & 3135.26 \\
-				 & 2.1 & 36m & 3,602m & 38.99 & 17 & 23.61 & 446.41 & 2855.40 \\\hline
-				MRS & \#1 & 37m & 6,083m & 76.93 & 14 & 19.44 & 327.52 & 2963.68 \\
-				 & \#2 & 42m & 4,154m & 43.36 & 8 & 11.11 & 913.89 & 3301.54 \\
-				 & \#3 & 39m & 2,753m & 23.94 & 14 & 19.44 & 599.07 & 3016.49 \\\hline
-				\hline \bf{Overall} &  & \bf{40m} & \bf{4,330m} & \bf{47.92} & \alert{\bf{36}} & \bf{16.67} & \bf{563.43} & \bf{3093.90} \\\hline\hline
+			\begin{tabular}{llrrrrrr}
+				\toprule
+				measure & value  & \#nodes & \#props & \%gap & \#opt & \%opt &  runtime(s) \\
+				\midrule
+				SF & 1 & 5.9m & 706k & 48.1 & 6/54 & 11.1 & 535.5 \\
+				 & 0.75 & 8.9m & 765k & 51.8 & 4/54 & 7.4 & 559.9 \\
+				 & 0.5 & 6.7m & 914k & 44.1 & 12/54 & 22.2 & 489.7 \\
+				 & variable & 8.6m & 754k & 52.4 & 5/54 & 9.26 & 553.5 \\\midrule
+				NC & 1.5 & 7.7m & 872k & 58.3 & 6/72 & 8.3 & 559.9 \\
+				 & 1.8 & 7.9m & 812k & 47.7 & 8/72 & 11.1 & 541.3 \\
+				 & 2.1 & 7.0m & 671k & 41.03 & 13/72 & 18.1 & 502.8 \\\midrule
+				MRS & \#1 & 7.4m & 1,106k & 79.2 & 11/72 & 15.3 & 525.4 \\
+				 & \#2 & 7.9m & 734k & 45.6 & 6/72 & 8.3 & 558.4 \\
+				 & \#3 & 7.3m & 515k & 24.0 & 10/72 & 13.9 & 520.1 \\\midrule
+				Overall &  & 7.5m & 785k & 49.3 & 27/216 & 12.5 & 534.6 \\\bottomrule
 			\end{tabular}
 		\end{adjustwidth}
 	\end{table}
 \end{frame}
+
+% \begin{frame}{Experiments: Large Data Set}
+% 	\begin{itemize}
+% 		\item Time limit of 3600 seconds \pause
+% 	\end{itemize}
+% 	\begin{table}[H]
+% 		\begin{adjustwidth}{-.9in}{-.9in}
+% 			\centering
+% 			\scriptsize
+% 			\vspace{2mm}
+% 			\begin{tabular}{cc|rrrrrrrr}
+% 				\hline
+% 				measure & value  & \#nodes & \#props & \%gap & \#opt & \%opt & opt rt. &  total rt. \\
+% 				\hline SF & 1 & 36m & 4,254m & 48.35 & 7 & 12.96 & 257.55 & 3166.72 \\
+% 				 & 0.75 & 47m & 4,296m & 49.63 & 4 & 7.41 & 545.44 & 3373.74 \\
+% 				 & 0.5 & 32m & 4,468m & 42.06 & 20 & 37.04 & 782.20 & 2556.37 \\
+% 				 & var & 45m & 4,302m & 49.82 & 5 & 9.26 & 130.97 & 3278.79 \\\hline
+% 				NC & 1.5 & 41m & 5,007m & 57.33 & 8 & 11.11 & 819.48 & 3291.05 \\
+% 				 & 1.8 & 42m & 4,381m & 46.09 & 11 & 15.28 & 558.06 & 3135.26 \\
+% 				 & 2.1 & 36m & 3,602m & 38.99 & 17 & 23.61 & 446.41 & 2855.40 \\\hline
+% 				MRS & \#1 & 37m & 6,083m & 76.93 & 14 & 19.44 & 327.52 & 2963.68 \\
+% 				 & \#2 & 42m & 4,154m & 43.36 & 8 & 11.11 & 913.89 & 3301.54 \\
+% 				 & \#3 & 39m & 2,753m & 23.94 & 14 & 19.44 & 599.07 & 3016.49 \\\hline
+% 				\hline \bf{Overall} &  & \bf{40m} & \bf{4,330m} & \bf{47.92} & \alert{\bf{36}} & \bf{16.67} & \bf{563.43} & \bf{3093.90} \\\hline\hline
+% 			\end{tabular}
+% 		\end{adjustwidth}
+% 	\end{table}
+% \end{frame}
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 % CONCLUSION
@@ -449,9 +519,10 @@
 		\vspace{2mm}
 		\item Generated a set of benchmark instances\pause
 		\vspace{2mm}
-		\item Found an effective model formulation\pause
-		\vspace{2mm}
-		\item Solved all small instances
+		\item Created an effective constraint programming model\vspace{2mm}
+		\begin{itemize}
+			\item Together with an application tailored search strategy
+		\end{itemize}
 	\end{itemize}
 \end{frame}
 
