@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  27 AUG 2017 22:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.23)  31 AUG 2017 00:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -907,20 +907,20 @@ Package: beamerouterthemeData61
 ux)
 \openout1 = `Data61-Final-Presentation.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -971,7 +971,7 @@ LaTeX Font Info:    ... okay on input line 17.
 \everyMPtoPDFconversion=\toks47
 ) ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box83
-Package hyperref Info: Link coloring OFF on input line 17.
+Package hyperref Info: Link coloring OFF on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -981,9 +981,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count186
 )
-LaTeX Info: Redefining \ref on input line 17.
-LaTeX Info: Redefining \pageref on input line 17.
-LaTeX Info: Redefining \nameref on input line 17.
+LaTeX Info: Redefining \ref on input line 18.
+LaTeX Info: Redefining \pageref on input line 18.
+LaTeX Info: Redefining \nameref on input line 18.
 
 (/home/ken/repos/mspsp-presentations/2017-08-CP2017/Data61-Final-Presentation.o
 ut)
@@ -993,57 +993,57 @@ ut)
 \openout5 = `Data61-Final-Presentation.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 17.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 18.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 17.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 18.
 \symnumbers=\mathgroup8
 \sympureletters=\mathgroup9
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 17.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 17.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 17.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 17.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 18.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 17.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 17.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 17.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 18.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 17.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 17.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 17.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 18.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 17.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 17.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 18.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 17.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 18.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 17.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 17.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 17.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 17.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 17.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 18.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 17.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 17.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 18.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 18.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
 (Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 1
-7.
+8.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
-17.
+18.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 17.
+ut line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/translator/dicts/translator-bas
 ic-dictionary/translator-basic-dictionary-English.dict
@@ -1069,31 +1069,31 @@ Dictionary: translator-numbers-dictionary, Language: English
 orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 17.
+LaTeX Info: Redefining \includegraphics on input line 18.
 
 (/home/ken/repos/mspsp-presentations/2017-08-CP2017/Data61-Final-Presentation.n
 av)
-LaTeX Font Info:    Try loading font information for U+msa on input line 17.
+LaTeX Font Info:    Try loading font information for U+msa on input line 18.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 17.
+LaTeX Font Info:    Try loading font information for U+msb on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 17.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 17.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 17.
+line 18.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -1106,20 +1106,107 @@ entations/2017-08-CP2017/art/DATA61_CSIRO_OnWhite_RGB.pdf> </home/ken/repos/msp
 sp-presentations/2017-08-CP2017/art/ArtworkGreen.png> </home/ken/repos/mspsp-pr
 esentations/2017-08-CP2017/art/CSIROLogo.png> </home/ken/repos/mspsp-presentati
 ons/2017-08-CP2017/art/Data61LogoBlack.png>]
+<images/mspsp0.png, id=82, 597.73312pt x 420.82219pt>
+File: images/mspsp0.png Graphic file (type png)
+ <use images/mspsp0.png>
+Package pdftex.def Info: images/mspsp0.png used on input line 39.
+(pdftex.def)             Requested size: 261.19826pt x 183.89093pt.
+
+Overfull \vbox (21.01932pt too high) detected at line 39
+ []
+
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 41.
+(Font)              size <5> substituted on input line 39.
 
 [2
 
-] [3
+ </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/mspsp0.png>]
+<images/mspsp1.png, id=91, 597.73312pt x 420.82219pt>
+File: images/mspsp1.png Graphic file (type png)
+ <use images/mspsp1.png>
+Package pdftex.def Info: images/mspsp1.png used on input line 39.
+(pdftex.def)             Requested size: 261.19826pt x 183.89093pt.
 
-] [4
+Overfull \vbox (21.01932pt too high) detected at line 39
+ []
 
-] [5
+[3
 
-]
-Overfull \hbox (9.51668pt too wide) in paragraph at lines 83--83
+ </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/mspsp1.png>]
+<images/mspsp2.png, id=98, 597.73312pt x 420.82219pt>
+File: images/mspsp2.png Graphic file (type png)
+ <use images/mspsp2.png>
+Package pdftex.def Info: images/mspsp2.png used on input line 39.
+(pdftex.def)             Requested size: 261.19826pt x 183.89093pt.
+
+Overfull \vbox (21.01932pt too high) detected at line 39
+ []
+
+[4
+
+ </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/mspsp2.png>]
+<images/mspsp3.png, id=105, 597.73312pt x 420.82219pt>
+File: images/mspsp3.png Graphic file (type png)
+ <use images/mspsp3.png>
+Package pdftex.def Info: images/mspsp3.png used on input line 39.
+(pdftex.def)             Requested size: 261.19826pt x 183.89093pt.
+
+Overfull \vbox (21.01932pt too high) detected at line 39
+ []
+
+[5
+
+ </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/mspsp3.png>]
+<images/mspsp4.png, id=112, 597.73312pt x 420.82219pt>
+File: images/mspsp4.png Graphic file (type png)
+ <use images/mspsp4.png>
+Package pdftex.def Info: images/mspsp4.png used on input line 39.
+(pdftex.def)             Requested size: 261.19826pt x 183.89093pt.
+
+Overfull \vbox (21.01932pt too high) detected at line 39
+ []
+
+[6
+
+ </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/mspsp4.png>]
+<images/mspsp5.png, id=119, 597.73312pt x 420.82219pt>
+File: images/mspsp5.png Graphic file (type png)
+ <use images/mspsp5.png>
+Package pdftex.def Info: images/mspsp5.png used on input line 39.
+(pdftex.def)             Requested size: 261.19826pt x 183.89093pt.
+
+Overfull \vbox (21.01932pt too high) detected at line 39
+ []
+
+[7
+
+ </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/mspsp5.png>]
+<images/mspsp6.png, id=127, 597.73312pt x 420.82219pt>
+File: images/mspsp6.png Graphic file (type png)
+ <use images/mspsp6.png>
+Package pdftex.def Info: images/mspsp6.png used on input line 39.
+(pdftex.def)             Requested size: 261.19826pt x 183.89093pt.
+
+Overfull \vbox (21.01932pt too high) detected at line 39
+ []
+
+[8
+
+ </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/mspsp6.png>]
+<images/mspsp7.png, id=134, 597.73312pt x 420.82219pt>
+File: images/mspsp7.png Graphic file (type png)
+ <use images/mspsp7.png>
+Package pdftex.def Info: images/mspsp7.png used on input line 39.
+(pdftex.def)             Requested size: 261.19826pt x 183.89093pt.
+
+Overfull \vbox (21.01932pt too high) detected at line 39
+ []
+
+[9
+
+ </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/mspsp7.png>]
+Overfull \hbox (9.51668pt too wide) in paragraph at lines 81--81
  [] 
  []
 
@@ -1131,14 +1218,14 @@ Package epstopdf Info: Source file: <images/precgraph.eps>
 (epstopdf)                    size: 5809 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/precgraph-eps-conve
 rted-to.pdf images/precgraph.eps>
-(epstopdf)             \includegraphics on input line 83.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
-<images/precgraph-eps-converted-to.pdf, id=109, 405.515pt x 183.68625pt>
+<images/precgraph-eps-converted-to.pdf, id=141, 405.515pt x 183.68625pt>
 File: images/precgraph-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/precgraph-eps-converted-to.pdf>
 Package pdftex.def Info: images/precgraph-eps-converted-to.pdf used on input li
-ne 83.
+ne 81.
 (pdftex.def)             Requested size: 148.64493pt x 67.3322pt.
 Package epstopdf Info: Source file: <images/sched.eps>
 (epstopdf)                    date: 2017-03-26 13:02:15
@@ -1148,22 +1235,22 @@ Package epstopdf Info: Source file: <images/sched.eps>
 (epstopdf)                    size: 9371 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/sched-eps-converted
 -to.pdf images/sched.eps>
-(epstopdf)             \includegraphics on input line 83.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 
-<images/sched-eps-converted-to.pdf, id=110, 338.26375pt x 145.54375pt>
+<images/sched-eps-converted-to.pdf, id=142, 338.26375pt x 145.54375pt>
 File: images/sched-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/sched-eps-converted-to.pdf>
 Package pdftex.def Info: images/sched-eps-converted-to.pdf used on input line 8
-3.
+1.
 (pdftex.def)             Requested size: 148.64493pt x 63.95726pt.
- [6
+ [10
 
  </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/precgraph-eps-conve
 rted-to.pdf> </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/sched-e
 ps-converted-to.pdf>]
-Overfull \hbox (9.51668pt too wide) in paragraph at lines 83--83
+Overfull \hbox (9.51668pt too wide) in paragraph at lines 81--81
  [] 
  []
 
@@ -1175,12 +1262,12 @@ Package epstopdf Info: Source file: <images/precgraph.eps>
 (epstopdf)                    size: 5809 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/precgraph-eps-conve
 rted-to.pdf images/precgraph.eps>
-(epstopdf)             \includegraphics on input line 83.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 File: images/precgraph-eps-converted-to.pdf Graphic file (type pdf)
 <use images/precgraph-eps-converted-to.pdf>
 Package pdftex.def Info: images/precgraph-eps-converted-to.pdf used on input li
-ne 83.
+ne 81.
 (pdftex.def)             Requested size: 148.64493pt x 67.3322pt.
 Package epstopdf Info: Source file: <images/sched.eps>
 (epstopdf)                    date: 2017-03-26 13:02:15
@@ -1190,18 +1277,18 @@ Package epstopdf Info: Source file: <images/sched.eps>
 (epstopdf)                    size: 9371 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/sched-eps-converted
 -to.pdf images/sched.eps>
-(epstopdf)             \includegraphics on input line 83.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 File: images/sched-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/sched-eps-converted-to.pdf>
 Package pdftex.def Info: images/sched-eps-converted-to.pdf used on input line 8
-3.
+1.
 (pdftex.def)             Requested size: 148.64493pt x 63.95726pt.
- [7
+ [11
 
 ]
-Overfull \hbox (9.51668pt too wide) in paragraph at lines 83--83
+Overfull \hbox (9.51668pt too wide) in paragraph at lines 81--81
  [] 
  []
 
@@ -1213,12 +1300,12 @@ Package epstopdf Info: Source file: <images/precgraph.eps>
 (epstopdf)                    size: 5809 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/precgraph-eps-conve
 rted-to.pdf images/precgraph.eps>
-(epstopdf)             \includegraphics on input line 83.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 File: images/precgraph-eps-converted-to.pdf Graphic file (type pdf)
 <use images/precgraph-eps-converted-to.pdf>
 Package pdftex.def Info: images/precgraph-eps-converted-to.pdf used on input li
-ne 83.
+ne 81.
 (pdftex.def)             Requested size: 148.64493pt x 67.3322pt.
 Package epstopdf Info: Source file: <images/sched.eps>
 (epstopdf)                    date: 2017-03-26 13:02:15
@@ -1228,18 +1315,18 @@ Package epstopdf Info: Source file: <images/sched.eps>
 (epstopdf)                    size: 9371 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/sched-eps-converted
 -to.pdf images/sched.eps>
-(epstopdf)             \includegraphics on input line 83.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 File: images/sched-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/sched-eps-converted-to.pdf>
 Package pdftex.def Info: images/sched-eps-converted-to.pdf used on input line 8
-3.
+1.
 (pdftex.def)             Requested size: 148.64493pt x 63.95726pt.
- [8
+ [12
 
 ]
-Overfull \hbox (9.51668pt too wide) in paragraph at lines 83--83
+Overfull \hbox (9.51668pt too wide) in paragraph at lines 81--81
  [] 
  []
 
@@ -1251,12 +1338,12 @@ Package epstopdf Info: Source file: <images/precgraph.eps>
 (epstopdf)                    size: 5809 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/precgraph-eps-conve
 rted-to.pdf images/precgraph.eps>
-(epstopdf)             \includegraphics on input line 83.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 File: images/precgraph-eps-converted-to.pdf Graphic file (type pdf)
 <use images/precgraph-eps-converted-to.pdf>
 Package pdftex.def Info: images/precgraph-eps-converted-to.pdf used on input li
-ne 83.
+ne 81.
 (pdftex.def)             Requested size: 148.64493pt x 67.3322pt.
 Package epstopdf Info: Source file: <images/sched.eps>
 (epstopdf)                    date: 2017-03-26 13:02:15
@@ -1266,30 +1353,21 @@ Package epstopdf Info: Source file: <images/sched.eps>
 (epstopdf)                    size: 9371 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/sched-eps-converted
 -to.pdf images/sched.eps>
-(epstopdf)             \includegraphics on input line 83.
+(epstopdf)             \includegraphics on input line 81.
 Package epstopdf Info: Output file is already uptodate.
 File: images/sched-eps-converted-to.pdf Graphic file (type pdf)
 
 <use images/sched-eps-converted-to.pdf>
 Package pdftex.def Info: images/sched-eps-converted-to.pdf used on input line 8
-3.
+1.
 (pdftex.def)             Requested size: 148.64493pt x 63.95726pt.
- [9
-
-] [10
-
-] [11
-
-] [12
-
-] [13
+ [13
 
 ] [14
 
 ] [15
 
-]
-[16
+] [16
 
 ] [17
 
@@ -1297,7 +1375,8 @@ Package pdftex.def Info: images/sched-eps-converted-to.pdf used on input line 8
 
 ] [19
 
-] [20
+]
+[20
 
 ] [21
 
@@ -1307,41 +1386,26 @@ Package pdftex.def Info: images/sched-eps-converted-to.pdf used on input line 8
 
 ] [24
 
-]
-Overfull \hbox (21.78104pt too wide) in alignment at lines 266--266
- [] [] [] [][]
- []
+] [25
 
-[25
-
-]
-Overfull \hbox (21.78104pt too wide) in alignment at lines 266--266
- [] [] [] [][]
- []
-
-[26
+] [26
 
 ] [27
 
 ] [28
 
-]
-Overfull \hbox (12.67883pt too wide) in paragraph at lines 344--344
- [] 
- []
-
-[29
+] [29
 
 ]
-Overfull \hbox (12.67883pt too wide) in paragraph at lines 344--344
- [] 
+Overfull \hbox (21.78104pt too wide) in alignment at lines 267--267
+ [] [] [] [][]
  []
 
 [30
 
 ]
-Overfull \hbox (12.67883pt too wide) in paragraph at lines 344--344
- [] 
+Overfull \hbox (21.78104pt too wide) in alignment at lines 267--267
+ [] [] [] [][]
  []
 
 [31
@@ -1350,13 +1414,33 @@ Overfull \hbox (12.67883pt too wide) in paragraph at lines 344--344
 
 ] [33
 
-] [34
+]
+Overfull \hbox (20.90114pt too wide) in paragraph at lines 347--347
+ [] 
+ []
 
-] [35
+[34
 
-] [36
+]
+Overfull \hbox (20.90114pt too wide) in paragraph at lines 347--347
+ [] 
+ []
 
-] [37
+[35
+
+]
+Overfull \hbox (20.90114pt too wide) in paragraph at lines 347--347
+ [] 
+ []
+
+[36
+
+]
+Overfull \hbox (20.90114pt too wide) in paragraph at lines 347--347
+ [] 
+ []
+
+[37
 
 ] [38
 
@@ -1374,8 +1458,7 @@ Overfull \hbox (12.67883pt too wide) in paragraph at lines 344--344
 
 ] [45
 
-]
-[46
+] [46
 
 ] [47
 
@@ -1387,7 +1470,40 @@ Overfull \hbox (12.67883pt too wide) in paragraph at lines 344--344
 
 ] [51
 
-] [52
+]
+[52
+
+] [53
+
+] [54
+
+] [55
+
+] [56
+
+]
+<images/lib-shot.png, id=476, 1060.96375pt x 1360.08125pt>
+File: images/lib-shot.png Graphic file (type png)
+
+<use images/lib-shot.png>
+Package pdftex.def Info: images/lib-shot.png used on input line 507.
+(pdftex.def)             Requested size: 215.10196pt x 275.747pt.
+
+Overfull \vbox (107.33122pt too high) detected at line 507
+ []
+
+[57
+
+ </home/ken/repos/mspsp-presentations/2017-08-CP2017/images/lib-shot.png>]
+[58
+
+] [59
+
+] [60
+
+] [61
+
+] [62
 
 ]
 \tf@nav=\write6
@@ -1399,29 +1515,29 @@ Overfull \hbox (12.67883pt too wide) in paragraph at lines 344--344
 \tf@snm=\write8
 \openout8 = `Data61-Final-Presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 549.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 549.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 579.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 579.
 
 (/home/ken/repos/mspsp-presentations/2017-08-CP2017/Data61-Final-Presentation.a
 ux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 549.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 549.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 579.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 579.
 Package rerunfilecheck Info: File `Data61-Final-Presentation.out' has not chang
 ed.
-(rerunfilecheck)             Checksum: F23C4C457B3E4F7B3A2E27834A87ADE4;639.
+(rerunfilecheck)             Checksum: D901C5CB20C62CD2CC8060AD44C6EC15;654.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 549.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 579.
  ) 
 Here is how much of TeX's memory you used:
- 18606 strings out of 493029
- 355555 string characters out of 6136234
- 448651 words of memory out of 5000000
- 21533 multiletter control sequences out of 15000+600000
- 18599 words of font info for 76 fonts, out of 8000000 for 9000
+ 18672 strings out of 493029
+ 356526 string characters out of 6136234
+ 448705 words of memory out of 5000000
+ 21569 multiletter control sequences out of 15000+600000
+ 19249 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,16n,59p,405b,549s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
@@ -1445,10 +1561,10 @@ onts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msam7.pfb>
 Output written on /home/ken/repos/mspsp-presentations/2017-08-CP2017/Data61-Fin
-al-Presentation.pdf (52 pages, 385160 bytes).
+al-Presentation.pdf (62 pages, 814475 bytes).
 PDF statistics:
- 531 PDF objects out of 1000 (max. 8388607)
- 434 compressed objects within 5 object streams
- 121 named destinations out of 1000 (max. 500000)
- 169 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 609 PDF objects out of 1000 (max. 8388607)
+ 492 compressed objects within 5 object streams
+ 141 named destinations out of 1000 (max. 500000)
+ 214 words of extra memory for PDF output out of 10000 (max. 10000000)
 

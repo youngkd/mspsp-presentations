@@ -10,7 +10,8 @@
 \usetheme{Data61}
 
 \title[CP applied to the MSPSP]{Constraint Programming applied to the Multi-Skill Project Scheduling Problem}
-\author{Kenneth D. Young, Thibaut Feydy and Andreas Schutt}
+% \author{Kenneth D. Young, Thibaut Feydy and Andreas Schutt}
+\author[Kenneth D. Young, Thibaut Feydy, and Andreas Schutt]{\textcolor{Data61 vermillion}{\large Kenneth D. Young}, {\normalsize Thibaut Feydy and Andreas Schutt}}
 \date{CP2017, 31st of August 2017}
 % \institute, \subtitle are not implemented yet
 
@@ -23,21 +24,18 @@
 \section{Introduction}
 \subsection{Problem Definition}
 \begin{frame}{Intro: The Problem}
-	The Multi-Skill Project Scheduling Problem (MSPSP) is a variant of the Resource Constrained Project Scheduling Problem (RCPSP)\pause
-	\begin{itemize}
-		\item Activities
-		\item Workers
-		\item Skills\pause
-	\end{itemize}
-	\vspace{4mm}
-	\alert{Aim:} Find the fastest way to complete all the activities\pause\\
-	\vspace{4mm}
-	Constraints
-	\begin{itemize}
-		\item Activity constraint: Precedence relations between activities
-		\item Skill constraint: Activities require skills
-		\item Worker constraint: Workers each have a variety of skills
-	\end{itemize}
+	The Multi-Skill Project Scheduling Problem (MSPSP) is \\a variant of the Resource Constrained Project Scheduling Problem (RCPSP)\pause
+\begin{figure}%
+	\centering%
+	\only<1>{\includegraphics[width=0.85\textwidth]{images/mspsp0.png}}%
+	\only<2>{\includegraphics[width=0.85\textwidth]{images/mspsp1.png}}%
+	\only<3>{\includegraphics[width=0.85\textwidth]{images/mspsp2.png}}%
+	\only<4>{\includegraphics[width=0.85\textwidth]{images/mspsp3.png}}%
+	\only<5>{\includegraphics[width=0.85\textwidth]{images/mspsp4.png}}%
+	\only<6>{\includegraphics[width=0.85\textwidth]{images/mspsp5.png}}%
+	\only<7>{\includegraphics[width=0.85\textwidth]{images/mspsp6.png}}%
+	\only<8>{\includegraphics[width=0.85\textwidth]{images/mspsp7.png}}%
+\end{figure}%
 \end{frame}
 
 \subsection{Example}
@@ -49,7 +47,7 @@
 			\vspace{-3mm}
 			\begin{tabular}{ccccc}
 				\toprule
-				 & Alice & Bob & Carl & Dora \\\midrule
+				 & Alice & Bob & Carl & Dora \\\midrule\midrule
 				{\tiny {\bf Programmer}} & - & \checkmark & \checkmark & \checkmark \\
 				{\tiny {\bf DB Designer}} & \checkmark & - & - & - \\
 				{\tiny {\bf Webmaster}} & \checkmark & \checkmark & - & \checkmark \\
@@ -66,7 +64,7 @@
 			\caption{Skill Requirement}
 			\begin{tabular}{ccccc}
 				\toprule
-				 & $A_1$ & $A_2$ & $A_3$ & $A_4$ \\\midrule
+				 & $A_1$ & $A_2$ & $A_3$ & $A_4$ \\\midrule\midrule
 				{\tiny {\bf Programmer}} & - & 1 & 2 & 1 \\
 				{\tiny {\bf DB Designer}} & 1 & - & - & 1 \\
 				{\tiny {\bf Webmaster}} & 1 & 1 & - & - \\
@@ -113,14 +111,14 @@
 			\item Principal researchers: Bernardo Almeida, Isabel Correia, Francisco Saldanha-da-Gama
 			\item Constructive heuristics
 			\item Randomised search heuristics
-			\item Generated their own data\pause
+			\item Generated their own instances inspired by PSPLib\pause
 		\end{itemize}
 		\vspace{2mm}
 		\item Polish research group
 		\begin{itemize}
-			\item Principal researchers: Myszkowski, Skowronski
+			\item Principal researchers: Pawe\l{} Myszkowski, Marek Skowronski
 			\item Randomised search heuristics
-			\item Generated their own data
+			\item Generated their own instances inspired by real-world data
 		\end{itemize}
 	\end{itemize}
 \end{frame}
@@ -140,7 +138,7 @@
 
 %~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
 % MODEL
-\section{Model}
+\section{Modelling the MSPSP}
 \subsection{Overview}
 \begin{frame}{Model}
 	\begin{itemize}
@@ -174,14 +172,17 @@
 	\begin{itemize}
 		\item Precedence relations are respected\pause
 		\vspace{2mm}
-		\item Workers perform only one activity at a time\pause
-		\vspace{2mm}
-		\item Workers cannot multi-task\pause
-		\vspace{2mm}
 		\item Skill requirement is satisfied
 		\begin{itemize}
-			\item A worker for each skill must be present to perform the activity
+			\item A worker for each skill must be present to perform the activity\pause
 		\end{itemize}
+		\vspace{2mm}
+		\item Workers perform only one activity at a time
+		\begin{itemize}
+			\item Also, workers cannot multi-task\pause
+		\end{itemize}
+		\vspace{2mm}
+		\item Workers only use skills they have mastered
 	\end{itemize}
 \end{frame}
 
@@ -193,9 +194,9 @@
 		\begin{tabular}{llp{8cm}}
 			\toprule
 			\multicolumn{3}{l}{ \bf{Decision Variables}}  \\
-			\midrule
+			\midrule\midrule
 			Primary & $s_i$ & Start time of activity $i \in V$ \\
-			 & $y_{ir}^s$ & 1 iff resource $r \in R$ contributes with skill $s \in S$ to activity $i \in V$\\\midrule
+			 & $y_{ir}^s$ & 1 iff resource $r \in R$ contributes with skill $s \in S$ to activity $i \in V$\\\midrule\pause
 			% \multicolumn{2}{l}{\rule{0pt}{2ex} \bf{Auxilliary Decision Variables}}  \\
 			Auxiliary & $o_{ij}$ & 1 iff activities $i$ and $j$ overlap for $(i,j)\in U$ \\
 			 & $x_{ir}$ & 1 iff resource $r \in R$ is assigned activity $i \in V$ \\
@@ -230,7 +231,7 @@
 % 	\end{adjustwidth}
 % \end{frame}
 
-\begin{frame}{Model: Choice of Constraints}
+\begin{frame}{Model: Choice of Formulation}
 	Unary Resource Constraint
 	\vspace{1mm}
 	\begin{itemize}
@@ -267,6 +268,7 @@
 
 \begin{frame}{Model: Unary Resource Constr.}
 	\begin{itemize}
+		\item $U=$ set of \emph{unrelated} activity pairs w.r.t. the precedence graph
 		\item First order constraint formulation
 		\begin{align}
 		    \neg o_{ij} 
@@ -306,12 +308,13 @@
 		\toprule
 		&  &  &  &  & \multicolumn{3}{c}{Best known results}\\ 
         \cmidrule(l){6-8} 
-		set & \multicolumn{1}{l}{\#instances} & $n$ & $l$ & $m$ & \multicolumn{1}{c}{source} & \multicolumn{1}{r}{\%optimal} & {\color{red} \#unsolved} \\ \midrule
+		set & \multicolumn{1}{l}{\#instances} & \#act. & \#skill & \#res. & \multicolumn{1}{c}{source} & \multicolumn{1}{r}{\%optimal} & {\color{red} \#unsolved} \\ \midrule\midrule
 		1a     & 216 & 22 & 4 & 10-30 & Correia et al. 2012 & 93.98 & {\color{red} 13}\\
 		1b     & 216& 42 & 4 & 20-60 & Almeida et al. 2016 & 2.31 & {\color{red} 211} \\ \midrule\pause
 		2a     & 110 & 20-51 & 2-8 & 5-14 & Montoya et al. 2014 & 43.64 & {\color{red} 62} \\
 		2b     & 77 & 32-62 & 9-15 & 5-19 & Montoya et al. 2014 & 66.20 & {\color{red} 24} \\
-		2c     & 91 & 22-32 & 3-12 & 4-15 & Montoya et al. 2014 & 51.11 & {\color{red} 44} \\ \bottomrule
+		2c     & 91 & 22-32 & 3-12 & 4-15 & Montoya et al. 2014 & 51.11 & {\color{red} 44} \\ \midrule\midrule\pause
+		& {\bf 710} & {\bf 20-62} & {\bf 2-15} & {\bf 4-60} & & & {\bf {\color{red} 354}} \\\bottomrule
 	\end{tabular}
     \end{adjustwidth}
 	\label{tab:data}
@@ -375,6 +378,7 @@
 
 \subsection{Results}
 \begin{frame}{Experiments: Search Strategies}
+
 	\begin{itemize}
 		\item Basic Search
 		\begin{itemize}
@@ -383,23 +387,40 @@
 			\vspace{2mm}
 		\item Sequential Searches
 		\begin{itemize}
-			\item  Start times ($s_i$), then worker assignment ($x_{ir}$)
-			\item  Start times ($s_i$), then contribution of each worker ($y_{ir}^s$)
-		\end{itemize}\pause
-			\vspace{2mm}
-		\item Priority searches $\Rightarrow$ Group scheduling and assignment decisions of each activity together
+			\item Start times ($s_i$), then worker assignment ($x_{ir}$)
+			\item Start times ($s_i$), then contribution of each worker ($y_{ir}^s$)\pause
+			\begin{itemize}
+				\item leads to bad branching decisions early in the search tree\pause
+			\end{itemize}
+		\end{itemize}
+		\item More involved sequential search $\Rightarrow$ mostly avoids previous problem
 		\begin{itemize}
-			\item {\tt priority-ff}: choose activity group by smallest start time domain 
-			\item {\tt priority-sml}: choose activity group by smallest largest possible start time
-			\item {\tt priority-sm}: choose activity group by smallest possible start time
+			\item Start time and worker contribution of activity 1 ($s_1,~y_{1r}^s$)
+			\item Start time and worker contribution of activity 2 ($s_2,~y_{2r}^s$)
+			\item $\vdots$
+			\item Start time and worker contribution of activity n ($s_n,~y_{nr}^s$)
 		\end{itemize}
 	\end{itemize}
 \end{frame}
 
+\begin{frame}{Experiments: Search Strategies}
+	\begin{itemize}
+		\item Priority search $\Rightarrow$ Group scheduling and assignment decisions of each activity together\vspace{2mm}\pause
+		\begin{itemize}
+			\item {\tt priority-ff}: choose activity group by smallest start time domain \vspace{2mm}
+			\item {\tt priority-sml}: choose activity group by smallest largest possible start time\vspace{2mm}
+			\item {\tt priority-sm}: choose activity group by smallest possible start time\pause
+		\end{itemize}
+		\item For more details see: Feydy et al. 2017, \emph{Priority Search with MiniZinc}, ModRef2017
+	\end{itemize}
+\end{frame}
+
+
 \begin{frame}{Experiments: Set 1'a}
 	\begin{itemize}
 		\item Tested on 216 generated instances with 22 activities 
-		\item Time limit of 600 seconds \pause
+		\item Time limit of 600 seconds
+		\item Solver used is {\tt Chuffed}
 	\end{itemize}
 	\begin{table}[tpb]
 	\begin{adjustwidth}{-.9in}{-.9in}
@@ -408,7 +429,7 @@
     \begin{tabular}{llrrr}
         \toprule
         unary cons. & search & \#nodes & \%optimal & runtime   \\
-        \midrule
+        \midrule\midrule
         cumulative & default & 370,174 & 100.00 & 10.23s \\
         order-1 & default & 97,085 & 100.00 & 2.73s \\
         order-2 & default & 54,282 & 100.00 & 1.30s \\
@@ -423,34 +444,32 @@
 \end{table}
 \end{frame}
 
-\begin{frame}{Experiments: Set 1'b and Set 2}
+\begin{frame}{Experiments: Set 2 and Set 1'b}
 	\begin{itemize}
-		\item Tested on remaining benchmark instances
-		\item Time limit of 600 seconds \pause
+		\item Tested on remaining benchmark instances\pause
 	\end{itemize}
 	\begin{table}[ptb]
-		% \begin{adjustwidth}{-.3in}{-.3in}
+		\begin{adjustwidth}{-.3in}{-.3in}
 		\setlength{\tabcolsep}{5pt}
-		% \small
-		\begin{tabular}{lrrrrrrr}
+		\small
+		\begin{tabular}{lrrrrrrrr}
 			\toprule
-			set & \#nodes & \%gap & \#opt & \%opt & mean runtime & {\color{red} \#closed} \\
-			\midrule
-			$1'b$ & 7,584k & 49.3 & 27/216 & 12.5 & 534.6s & {\color{red} --} \\\midrule\pause
-			$2a$ & 2,223k & 185.2 & 81/110 & 73.6 & 195.2s & {\color{red} $\geq$33 } \\\pause
-			$2b$ & 816k & 22.4 & 63/77 & 81.8 & 122.9s & {\color{red} $\geq$10 } \\\pause
-			$2c$ & 14k & 0.0 & 91/91 & 100.0 & 1.2s & {\color{red} 44 } \\
+			set & \#nodes & \%gap & \#opt & \%opt & mean runtime & {\color{red} \#prev. open} & {\color{red} \#closed} \\
+			\midrule\midrule
+			$2a$ & 2,223k & 185.2 & 81/110 & 73.6 & 195.2s & {\color{red} 62} & {\color{red} $\geq$33 } \\\pause
+			$2b$ & 816k & 22.4 & 63/77 & 81.8 & 122.9s & {\color{red} 24} & {\color{red} $\geq$10 } \\\pause
+			$2c$ & 14k & 0.0 & 91/91 & 100.0 & 1.2s & {\color{red} 44} & {\color{red} 44 } \\\midrule\pause
+			$1'b$ & 7,584k & 49.3 & 27/216 & 12.5 & 534.6s & {\color{red} ``211''} & {\color{red} --} \\
 			\bottomrule
 		\end{tabular}
 		\label{tab:benchmarks}
-		% \end{adjustwidth}
+		\end{adjustwidth}
 	\end{table}
 \end{frame}
 
 \begin{frame}{Experiments: Complexity Measures}
 	\begin{itemize}
-		\item Results of set $1'b$
-		\item Time limit of 600 seconds \pause
+		\item Results of set $1'b$\pause
 	\end{itemize}
 	\begin{table}[H]
 		\begin{adjustwidth}{-.9in}{-.9in}
@@ -459,7 +478,7 @@
 			\begin{tabular}{llrrrrrr}
 				\toprule
 				measure & value  & \#nodes & \#props & \%gap & \#opt & \%opt &  runtime(s) \\
-				\midrule
+				\midrule\midrule
 				SF & 1 & 5.9m & 706k & 48.1 & 6/54 & 11.1 & 535.5 \\
 				 & 0.75 & 8.9m & 765k & 51.8 & 4/54 & 7.4 & 559.9 \\
 				 & 0.5 & 6.7m & 914k & 44.1 & 12/54 & 22.2 & 489.7 \\
@@ -474,6 +493,17 @@
 			\end{tabular}
 		\end{adjustwidth}
 	\end{table}
+\end{frame}
+
+\begin{frame}{MSPSP Instance Library}
+	\begin{itemize}
+		% \pause
+		\item All instances have been made available at \url{https://github.com/youngkd/MSPSP-InstLib}
+	\end{itemize}
+	\begin{figure}%
+		\centering%
+		\includegraphics[width=0.7\textwidth]{images/lib-shot.png}%
+	\end{figure}%
 \end{frame}
 
 % \begin{frame}{Experiments: Large Data Set}
@@ -510,7 +540,7 @@
 \subsection{Summary}
 \begin{frame}{Summary}
 	\begin{itemize}
-		\item Applied the constraint programming solver chuffed to the MSPSP\pause
+		\item Applied the constraint programming solver {\tt Chuffed} to the MSPSP\pause
 		\vspace{2mm}
 		\item Generated a set of benchmark instances\pause
 		\vspace{2mm}
